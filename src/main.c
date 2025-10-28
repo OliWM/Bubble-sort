@@ -33,15 +33,14 @@ int number_arr1[] = {4, -1, 2, 9};
 int n = 0;
 
 int convert_lowercaseletters(char letter) {
-  if (letter < 65 || (90 < letter && letter < 97) || letter > 122) {
-    puts("Invalid input, non-letter detected");
-    return -1;
-  }
-  if ('a' >= letter && letter <= 'z') { // changed to taking 'a' instead of 97
+  if ('a' <= letter && letter <= 'z') { // changed to taking 'a' instead of 97
                                         // as you can apparently just do that
     return letter - 32;
-  } else {
+  } else if ('A' <= letter && letter <= 'Z') {
     return letter;
+  } else {
+    puts("Invalid input (convert)");
+    return -1;
   }
 }
 
@@ -75,7 +74,7 @@ void letter_swap(char *a, char *b) {
 };
 
 void number_swap(int *a, int *b) {
-  char temp = *a;
+  int temp = *a;
   *a = *b;
   *b = temp;
 };
