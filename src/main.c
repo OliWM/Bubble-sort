@@ -3,17 +3,13 @@
 #include <stdio.h>
 
 char letter_arr1[] = {'z', 'S', 's', 'a'};
-// aSsz
+
 char number_arr1[] = {4, -1, 2, 9};
-// -1, 2, 4, 9
-// overven at gør så det er et userinput
 
 // bubble_sort(char arr, bool(pair_is_in_order *)(char a, char b)); samler bare
 // de andre funktioner
 
 // pair_is_in_order
-
-// tjek hvordan du beslutter om du skal bruge letter eller number
 
 int n = 0;
 
@@ -41,13 +37,26 @@ bool letters_in_order(char *letters, int n) {
   int second_letter = convert_lowercaseletters(letters[j]);
 
   bool in_order = first_letter < second_letter ? true : false;
-  return in_order;
+  return in_order; // ændres til pair_is_in_order
 }
 
 bool numbers_in_ascending_order(char *numbers, int n) {
   bool numbers_in_order = numbers[n] < numbers[n + 1] ? true : false;
-  return numbers_in_order;
+  return numbers_in_order; // ændres til pair_is_in_order
 }
+
+void swap(char *a, char *b) {
+  char temp = *a;
+  *a = *b;
+  *b = temp;
+};
+
+void swap_int(int *a, int *b) { // tror vi skal bruge en til fordi int fylder
+                                // mere end char? Prøver lige uden
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+};
 
 /*swap brug pointers til at ændre addresserne
 char arr[] = {1, 2, 3};
@@ -63,7 +72,9 @@ int main() {
 
   bool number_in_order = numbers_in_ascending_order(number_arr1, n);
 
-  printf("Is %d before %d? \n%s", number_arr1[n], number_arr1[n + 1],
+  printf("Is %d before %d? \n%s", number_arr1[n],
+         number_arr1[n + 1], // has to print %d, %c will print the ASCII
+                             // character (if there is one)
          number_in_order ? "True\n" : "False\n");
   return 0;
 }
