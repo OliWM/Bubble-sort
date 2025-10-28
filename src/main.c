@@ -122,13 +122,26 @@ void number_bubble_sort(int arr[], int len,
 };
 
 int main() {
+  puts("If we bubble sort the array: ");
+
   for (int i = 0; i < sizeof(letter_arr1) / sizeof(letter_arr1[0]); i++) {
     printf("%c ", letter_arr1[i]);
   }
   puts("\n"),
       letter_bubble_sort(letter_arr1, values_in_letter_array, letters_in_order);
+  puts("We get the array:");
   for (int i = 0; i < sizeof(letter_arr1) / sizeof(letter_arr1[0]); i++) {
     printf("%c ", letter_arr1[i]);
+  }
+  puts("\n\nIf we bubble sort the array: ");
+  for (int i = 0; i < sizeof(number_arr1) / sizeof(number_arr1[0]); i++) {
+    printf("%d ", number_arr1[i]);
+  }
+  puts("\n"),
+      number_bubble_sort(number_arr1, values_in_number_array, numbers_in_order);
+  puts("We get the array:");
+  for (int i = 0; i < sizeof(number_arr1) / sizeof(number_arr1[0]); i++) {
+    printf("%d ", number_arr1[i]);
   }
 
   return 0;
