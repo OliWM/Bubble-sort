@@ -6,10 +6,21 @@ char letter_arr1[] = {'z', 'S', 's', 'a'};
 
 char number_arr1[] = {4, -1, 2, 9};
 
-// bubble_sort(char arr, bool(pair_is_in_order *)(char a, char b)); samler bare
-// de andre funktioner
+enum letter_number {
+  LETTER = 1,
+  NUMBER = 2
+}; // left at 1 and 2 because if we had an error it might be harder to catch if
+   // LETTER = 0, as a failed int function might also end up as 0.
 
-// pair_is_in_order
+int letter_or_number(
+    char a) { // no built in safety to check if we are really fed either a
+              // number or letter and not something else.
+  if (a > 64 && a < 91 || a > 96 && a < 123) {
+    return LETTER;
+  } else {
+    return NUMBER;
+  }
+}
 
 int n = 0;
 
@@ -36,13 +47,18 @@ bool letters_in_order(char *letters, int n) {
   j++;
   int second_letter = convert_lowercaseletters(letters[j]);
 
-  bool in_order = first_letter < second_letter ? true : false;
-  return in_order; // ændres til pair_is_in_order
+  bool letter_is_in_order = first_letter < second_letter ? true : false;
+  return letter_is_in_order;
 }
 
 bool numbers_in_ascending_order(char *numbers, int n) {
-  bool numbers_in_order = numbers[n] < numbers[n + 1] ? true : false;
-  return numbers_in_order; // ændres til pair_is_in_order
+  bool number_is_in_order = numbers[n] < numbers[n + 1] ? true : false;
+  return number_is_in_order;
+}
+
+bool pair_is_in_order(char a, char b) {
+  if (letter_or_number(a) == LETTER) {
+  };
 }
 
 void swap(char *a, char *b) {
@@ -51,11 +67,8 @@ void swap(char *a, char *b) {
   *b = temp;
 };
 
-void swap_int(int *a, int *b) { // tror vi skal bruge en til fordi int fylder
-                                // mere end char? Prøver lige uden
-  int temp = *a;
-  *a = *b;
-  *b = temp;
+void bubble_sort(char arr, bool (*pair_is_in_order)(char a, char b)) {
+
 };
 
 int main() {
