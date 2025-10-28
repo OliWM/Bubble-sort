@@ -58,23 +58,8 @@ void swap_int(int *a, int *b) { // tror vi skal bruge en til fordi int fylder
   *b = temp;
 };
 
-/*swap brug pointers til at ændre addresserne
-char arr[] = {1, 2, 3};
-swap(arr[0], arr[2]);
-// Now is arr = {3, 2, 1}*/
-
 int main() {
-  int n = 0;
-  bool letter_in_order = letters_in_order(letter_arr1, n);
-
-  printf("Is %c before %c? \n%s", letter_arr1[n], letter_arr1[n + 1],
-         letter_in_order ? "True \n" : "False\n");
-
-  bool number_in_order = numbers_in_ascending_order(number_arr1, n);
-
-  printf("Is %d before %d? \n%s", number_arr1[n],
-         number_arr1[n + 1], // has to print %d, %c will print the ASCII
-                             // character (if there is one)
-         number_in_order ? "True\n" : "False\n");
+  swap(&letter_arr1[0], &letter_arr1[1]);
+  printf("%s", &letter_arr1[0]);
   return 0;
 }
