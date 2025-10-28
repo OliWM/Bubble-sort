@@ -59,7 +59,7 @@ void swap_int(int *a, int *b) { // tror vi skal bruge en til fordi int fylder
 };
 
 int main() {
-  swap(&letter_arr1[0], &letter_arr1[1]);
-  printf("%s", &letter_arr1[0]);
+  swap(&number_arr1[0], &number_arr1[1]);
+  printf("%d, %d", number_arr1[0], number_arr1[1]);
   return 0;
 }
